@@ -1,14 +1,14 @@
-# Contributing to ignition-api
+# Contributing to incendium
 
 We follow a simple model to make contributing as straightforward as possible. These guidelines allow us to streamline the development process and achieve greater transparency.
 
 ## Code of Conduct
 
-Help us keep **ignition-api** open and inclusive. Please read and follow our [Code of Conduct](https://github.com/ignition-api/.github/blob/main/CODE_OF_CONDUCT.md).
+Help us keep **incendium** open and inclusive. Please read and follow our [Code of Conduct](https://github.com/ignition-incendium/.github/blob/main/CODE_OF_CONDUCT.md).
 
 ## Got a question?
 
-Please join us on or [Discussions](https://github.com/ignition-api/discussions/discussions).
+Please join us on or [Discussions](https://github.com/ignition-incendium/incendium/discussions/discussions).
 
 ## Found a bug?
 
@@ -16,11 +16,11 @@ If you find a bug or if something is missing in the source code, you can help us
 
 ## Getting ready to contribute
 
-In **ignition-api** we rely on Python 2.7.18 for development, and Python 3.10 to run tests and style checks with `pre-commit` and `tox`.
+For **incendium** we rely on Python 2.7.18 for development, and Python 3.11 to run tests and style checks with `pre-commit` and `tox`.
 
 ### Setting up your local environment
 
-1. Install Python 2.7.18 and the latest 3.10 release
+1. Install Python 2.7.18 and the latest 3.11 release
 1. Install the required packages for development you may run the following command:
 
     ```sh
@@ -49,7 +49,7 @@ In **ignition-api** we rely on Python 2.7.18 for development, and Python 3.10 to
 
 ## Pull Requests
 
-In **ignition-api** we use the [GitHub flow](https://guides.github.com/introduction/flow/) as main versioning workflow.
+We use the [GitHub flow](https://guides.github.com/introduction/flow/) as main versioning workflow.
 
 1. Fork the repository
 1. Create a new branch from **main** for each feature, fix or improvement, using the following naming convention:
@@ -57,7 +57,7 @@ In **ignition-api** we use the [GitHub flow](https://guides.github.com/introduct
     1. `fix/scope/fix-name` when fixing an existing issue
     1. `docs/change` for documentation changes
     1. `chore/chore-desc` for miscellaneous changes
-1. Make sure to run `pre-commit` and `tox`
+1. Make sure to install [`pre-commit`](https://pre-commit.com/) and run our pre-commit hooks and apply our [Coding Style](#coding-style).
 1. Add your commits to the branch following our [Commit Message Format](#commit-message-format)
 1. Send a pull request from each feature branch to the **main** branch
 
@@ -96,6 +96,12 @@ The `footer` is optional. The [Commit Message Footer](#commit-message-footer) fo
 
 ```text
 <type>(<scope>): <summary>
+  │       │             │
+  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │
+  │       └─⫸ Commit Scope: constants|dataset|date|db|exception|net|tag|types|user|util|vision
+  │
+  └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
 ```
 
 The `<type>` and `<summary>` fields are mandatory, the `(<scope>)` field is optional.
@@ -108,10 +114,10 @@ Must be one of the following:
 * **chore**: Other changes that don't modify src or test files (example scopes: `release`)
 * **ci**: Changes to our CI configuration files and scripts (example scope: `pip`)
 * **docs**: Documentation only changes
-* **feat**: A new feature (example scopes: `ia`, `java`, `javax`, `org`, `system`, `thecesrom`)
-* **fix**: A bug fix (example scopes: same as **feat**)
-* **perf**: A code change that improves performance (example scopes: same as **feat**)
-* **refactor**: A code change that neither fixes a bug nor adds a feature (example scopes: same as **feat**)
+* **feat**: A new feature
+* **fix**: A bug fix
+* **perf**: A code change that improves performance
+* **refactor**: A code change that neither fixes a bug nor adds a feature
 * **revert**: Reverts a previous commit
 * **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc.)
 * **test**: Adding missing tests or correcting existing tests
@@ -122,13 +128,17 @@ The `scope` should be the name of the Python package affected.
 
 The following is the list of supported scopes:
 
-* **ia**: for changes to the `com.inductiveautomation` package
-* **java**: for changes to the `java` package
-* **javax**: for changes to the `javax` package
-* **org**: for changes to the `org` package
-* **pip**: for changes to Python Packaging files (`pyproject.toml`, `setup.cfg`, `setup.py`)
-* **system**: for changes to the `system` package
-* **thecesrom**: for changes to the `dev.thecesrom` package
+* constants
+* dataset
+* date|
+* db
+* exception
+* net
+* tag
+* types
+* user
+* util
+* vision
 
 There are currently a few exceptions to the "use package name" rule:
 
@@ -148,7 +158,7 @@ Use the summary field to provide a succinct description of the change:
 Example Conventional Commit message:
 
 ```text
-refactor(ia): improve Version comparison logic
+refactor(dataset): use Dataset instance functions
 ```
 
 ## Commit Message Footer
